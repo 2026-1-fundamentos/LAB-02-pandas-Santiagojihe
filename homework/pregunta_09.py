@@ -23,3 +23,9 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
+    import pandas as pd
+    
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    # Extract year directly from string to handle invalid dates like 1999-02-29
+    df["year"] = df["c3"].str.split("-").str[0]
+    return df
